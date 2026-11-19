@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA VI Trophy Guide &amp; Tracker (All 55 PS5 Trophies)</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: saved checklist, Next Up planner, platinum roadmap, missable warnings, and a cited step-by-step guide for every trophy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff5c8a'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23120a1e'%3EVI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<header class="masthead">
+  <p class="eyebrow">Grand Theft Auto VI · PlayStation 5 · Leonida · Offline guide</p>
+  <h1>Leonida Ledger</h1>
+  <p class="lede">Every one of the 55 official trophies — 1 Platinum, 2 Gold, 6 Silver, 46 Bronze, 28 hidden, none online — with a cited guide for each, a saved checklist, a Next Up planner and a platinum roadmap. About 200 hours, difficulty 4/10 (PowerPyx). One trophy is possibly missable; this guide says which, and what to do in Chapter 1.</p>
+
+  <section class="dashboard" aria-label="Progress dashboard">
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+        <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="52"></circle>
+      </svg>
+      <div class="ring-label"><strong id="progress-count">0 / 55</strong><span>earned</span></div>
+    </div>
+    <dl class="stats">
+      <div><dt>Gamerscore</dt><dd id="stat-gamerscore">0 / 1,000G</dd></div>
+      <div><dt>Hours left (est.)</dt><dd id="stat-hours">~134 h</dd></div>
+      <div><dt>Missable done</dt><dd id="stat-missable">0 / 1</dd></div>
+      <div><dt>Unconfirmed left</dt><dd id="stat-unconfirmed">5</dd></div>
+    </dl>
+    <div class="grade-bars" id="grade-bars" aria-label="Progress by grade"></div>
+  </section>
+
+  <nav class="tabs" aria-label="Guide sections">
+    <button type="button" data-view="tracker" class="active" aria-pressed="true">Tracker</button>
+    <button type="button" data-view="planner" aria-pressed="false">Next up</button>
+    <button type="button" data-view="roadmap" aria-pressed="false">Platinum roadmap</button>
+    <button type="button" data-view="missables" aria-pressed="false">Missables</button>
+    <button type="button" data-view="about" aria-pressed="false">About &amp; sources</button>
+  </nav>
+</header>
+
+<main>
+<section class="view" id="view-tracker">
+  <div class="controls">
+    <label class="search-label">Search <input id="search" type="search" placeholder="Name, description, guide or step…  ( / )" autocomplete="off"></label>
+    <label>Kind <select id="kind">
+      <option value="all">All kinds</option>
+      <option value="platinum">Platinum</option>
+      <option value="completion">100% completion</option>
+      <option value="story">Story</option>
+      <option value="side">Side quest</option>
+      <option value="collectible">Collectible</option>
+      <option value="activity">Activity</option>
+      <option value="crime">Crime</option>
+      <option value="exploration">Exploration</option>
+      <option value="money">Money</option>
+      <option value="moment">One-off moment</option>
+    </select></label>
+    <label>Grade <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select></label>
+    <label>Status <select id="status">
+      <option value="all">All</option>
+      <option value="earned">Earned</option>
+      <option value="unearned">Not yet earned</option>
+    </select></label>
+    <label>Sort <select id="sort">
+      <option value="roadmap">Roadmap order</option>
+      <option value="easiest">Easiest first</option>
+      <option value="name">Name A–Z</option>
+      <option value="grade">Grade (best first)</option>
+      <option value="chapter">Story chapter</option>
+    </select></label>
+    <label class="check"><input id="missable-only" type="checkbox"> Possibly missable only</label>
+    <label class="check"><input id="unconfirmed-only" type="checkbox"> Unconfirmed only</label>
+    <label class="check"><input id="spoilers" type="checkbox"> Show spoilers (reveal hidden trophies)</label>
+  </div>
+  <div class="tools">
+    <button id="export" type="button">Export progress</button>
+    <button id="copy-summary" type="button">Copy progress summary</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+    <button id="reset" type="button">Reset progress</button>
+    <button id="print" type="button">Print guide</button>
+    <span id="import-note" role="status"></span>
+  </div>
+  <p id="list-count" class="sub"></p>
+  <div class="tracker-layout">
+    <div id="trophy-list" class="trophy-list"></div>
+    <aside id="detail" class="detail" aria-live="polite"></aside>
+  </div>
+</section>
+
+<section class="view" id="view-planner" hidden>
+  <h2>Next up — the cheapest trophies you have left</h2>
+  <p class="lede">Ranked by difficulty first, then confirmed trophies before unconfirmed ones, then by estimated hours, then by roadmap phase — so the next thing you do is always the easiest certain win still open. Story trophies are excluded: they come when the story comes.</p>
+  <div id="planner"></div>
+</section>
+
+<section class="view" id="view-roadmap" hidden>
+  <h2>Roadmap to the platinum</h2>
+  <p class="lede">About 200 hours in total (PowerPyx, via GTA-Zone): 60–80 for the story, about 100 for the 100% checklist, about 10 for Strangers &amp; Freaks and cleanup. One playthrough, no difficulty settings, no mission replay, free roam after the story. Do the phases in order; tick trophies off in the tracker as you earn them.</p>
+  <div id="roadmap"></div>
+  <h3>Progress by story chapter</h3>
+  <div id="chapter-bars"></div>
+</section>
+
+<section class="view" id="view-missables" hidden>
+  <h2>Missables</h2>
+  <div id="missables"></div>
+</section>
+
+<section class="view" id="view-about" hidden>
+  <h2>About this guide</h2>
+  <p>This guide is an independent, fan-made tracker. It is not affiliated with Rockstar Games, Sony or PlayStation, and it uses no Rockstar logo, artwork or game screenshots: the look is its own.</p>
+  <h3>How accurate is it?</h3>
+  <p>The trophy names, descriptions and grades are the official list as PlayStation publishes it, mirrored by Exophase and PSNProfiles on 18 November 2026 and cross-checked against TrueAchievements, GTABase and PowerPyx. The guides are written in this entry's own words from those sources, with numbered steps and a source link beside every trophy. Where a trophy's exact trigger has not been pinned down yet — five trophies, marked <strong>unconfirmed</strong> — the guide says so instead of inventing steps. Difficulty ratings and time estimates are the guide's own estimates, labelled as such; the headline figures (about 200 hours, 4/10) are PowerPyx's, via GTA-Zone.</p>
+  <h3>How to use it</h3>
+  <p>Tick a trophy off when you earn it on PS5; the tick is saved in this browser's localStorage and survives reloads. Use Export to keep a backup file, and Import to restore it on another device. Spoilers stay off by default, so the 28 hidden trophies show as “Hidden trophy” until you earn them or turn spoilers on. Add a personal note to any trophy — it is saved with your progress. The whole guide is static files that work with the network off: nothing is fetched at run time except its own trophy data file. Press <kbd>/</kbd> to jump to search.</p>
+  <h3>Sources</h3>
+  <ul class="sources">
+    <li><a href="https://www.planetgta6.com/en/gta-6-trophies/" target="_blank" rel="noopener">PlanetGTA6 — GTA 6 Trophies: All 55 trophies and Xbox achievements</a> (official names and descriptions from Exophase, cross-checked with PSNProfiles and TrueAchievements)</li>
+    <li><a href="https://gta-zone.com/news/gta-6-trophies-achievements/" target="_blank" rel="noopener">GTA-Zone — GTA 6 Trophy List: All 55 Trophies and Achievements</a> (PowerPyx's difficulty, time and missable call; GTABase's Gamerscore and counts)</li>
+    <li><a href="https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series" target="_blank" rel="noopener">GTABase — GTA 6 Trophy Guide &amp; Achievements List</a> (full list with grades, Gamerscore and hidden flags)</li>
+    <li><a href="https://outputlag.com/guides/gta-6-trophy-list/" target="_blank" rel="noopener">OutputLag — GTA 6 Trophy List: All 55 Trophies and Achievements</a> (cross-check on the missable meditation spot and the 200-hour estimate)</li>
+  </ul>
+  <h3>Key facts, with sources</h3>
+  <ul>
+    <li>55 trophies: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze; 28 hidden; 1,000 Gamerscore on Xbox. (PlanetGTA6, GTABase)</li>
+    <li>No online trophies and no DLC trophies; the whole list is single-player. (GTA-Zone, GTABase)</li>
+    <li>Platinum about 200 hours, difficulty 4/10; story 60–80 hours. (PowerPyx via GTA-Zone)</li>
+    <li>One possibly missable trophy: Positive Mental Attitude, first meditation spot in Chapter 1. (PowerPyx via GTA-Zone)</li>
+    <li>Five trophies unconfirmed: In The Beginning…, Capital Offense, Bad Luck, I Guess, The Truth Is Out There, Ten Pin. (GTA-Zone)</li>
+    <li>Cheats disable trophies and saving, and only unlock after the story. (PowerPyx via GTA-Zone)</li>
+    <li>No mission replay and no New Game+; free roam continues after the story. (GTA-Zone)</li>
+  </ul>
+  <p class="sub">Grand Theft Auto and GTA are trademarks of Take-Two Interactive. This guide names them only to describe the game it covers.</p>
+</section>
+</main>
+
+<footer>
+  <p>Offline guide · progress saved in your browser · no account, no tracking, no ads. Trophy names and descriptions © PlayStation / Rockstar Games as published; guides are this entry's own words.</p>
+</footer>
+<script type="module" src="js/boot.js"></script>
+</body>
+</html>
